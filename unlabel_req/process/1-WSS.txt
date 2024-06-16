@@ -1,0 +1,48 @@
+This Web Store is designed to allow new online store owners a quick and easy means to setup and perform sales and other core business over the internet.
+This document will outline all of the functions, capabilities and requirements for the Web Store.
+According to GAMMA-J’s functional needs statement, the web store will manage customer accounts, manage an online store inventory and manage a customer’s “Shopping Cart”.
+The web store will confirm orders.
+The web store will have an unambiguous interface to assist in browsing the categories and products.
+The web store will use Secure Socket Layer (SSL) for security.
+The initial inventory will be 100 items.
+Expandable with unique codes, the owners can purchase to expand the inventory.
+The minimum total inventory will be 20,000 items.
+Since this will be a “Plug and Play device”, no software installation will be necessary.
+This software will contain all of the basic needs to manage an online store.
+Web Store is a new system designed for users new to the online E-commerce.
+This will be a plug and play device with its own CPU and operating system.
+The Web Store will be a quick and easy means to setup and operate an online Web Store.
+The Web Store allows users to create, edit, and view accounts information.
+It also allows the user to login/out of the system.
+The Web Store assists the user in finding a specific item in the database.
+It can receive search criteria, find search criteria, and return the results of the search.
+The Web Store allows sales personnel to manage the product line shown on the web site.
+The Web Store can provide temporary storage for customers shopping on the web.
+Items from the inventory can be reserved in a virtual cart until the customer decides to purchase them.
+The Web Store is used to approve and transfer payment from buyers when purchasing items in the cart.
+System administrator is generally the owner that takes care of maintenance for the Web Store system.
+The administrator will be in charge of assigning privileges of accounts.
+Suggested more than one individual can have administrator privilege to ensure advisability.
+Full documentation will be provided to the Administrator to assist with this process.
+Sales personnel is generally the owner of the Web Store tasked with updating inventory and product line descriptions.
+Once added, sales personnel can add, delete and change descriptions, pictures, prices, and when ready flag items for customers to buy.
+A customer is an individual wishing to purchase inventory from GAMMA-J’s Web Store.
+The Web store will have a variety of clientele depending upon the inventory loaded on the Key.
+When creating a new account on Web Store it will default as a customer account.
+Later if the account needs to be upgraded the administrator can accomplish this via the administrator interface.
+Customers will be able to create accounts to store their customer profiles, configure contact information, view their purchase history, and confirm orders.
+Customers will be able to register, log in, and log out of their accounts.
+Furthermore, Customer profiles will also include payment information, such as the ability to store credit card information, and address information.
+Products will be stored in multi-tiered categories; a category can contain sub categories or products.
+The inventory management will allow for administrators to update the categories, the products placed in categories, and the specific product details.
+Customers will also be able to add products into the shopping cart.
+The shopping cart will clearly display the number of items in the cart, along with the total cost.
+The customer will also be able to add to or remove products from the shopping cart prior to checkout and order confirmation.
+Customers will be able to confirm the order after checkout.
+If the order is incorrect, the customer will be able to revise and update their order.
+The customer will then receive a confirmation email with the specific order details.
+Customers will be presented with an unambiguous interface to assist in browsing the categories and products.
+Customers will be able to search for products matching their search criteria.
+The interface will be compatible with all major web browsers such as Internet Explorer, Mozilla Navigator, Mozilla Firefox, Opera, and Safari.
+The system will implement an Application Interface to allow for various plug-ins to interact with the system.
+The plug-in API will be well documented and specifications will be provided to plug-in developers.

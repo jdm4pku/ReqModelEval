@@ -1,0 +1,170 @@
+The following subsections of provide an overview of the entire Software Requirements Specification.
+This Software Requirements Specification (SRS) specifies the qualification requirements for The Energy Management System (THEMAS).
+It provides a technical description of all so ftware requirements of the system, provides traceability of software capability requirements to the Statement of Work, and identifies external interfaces.
+This document is intended for use by the Design Requirements team, Principle Software Architect, and other parties interested in the development and progression of the Energy Management System.
+The scope of this document is confined to only the software requirements for the the Energy Management System.
+Only those conditions expressed with the imperative "shall" are to be interp reted as binding requirements for this SRS.
+This document provides a detailed definition of all requirements for the the Energy Management System.
+It does not provide a detailed definition of the exact systems that will interface with the Energy Management System.
+The SRS shall give a prototype of a simulated thermostat for verification and validation of the Energy Management System reliability.
+The requirements specified in this document are to be used as the basis for software design of the the Energy Management System.
+The following documents shown form a part of this specification.
+In the event of conflict between the documents referenced and the contents of this SRS, the contents of this document shall overrule all others, with the exception of the Statement of Work.
+This document is prepared in accordance with the American National Standards Institute (ANSI) / Institute of Electrical and Electronics Engineers (IEEE) Guide to Software Requirements Specifications of this document gives a general description of the the Energy Management System.
+It provides product perspectives, product functions, user characteristics, general constraints, and assumptions and dependencies of the system.
+Section 3.0 contains all the details the Design Requirements team needs to create a design.
+It will contain functional and performance requirements, design constraints, attributes and external interface requirements for the the Energy Management System.
+This section of this SRS describes the general factors that effect the the Energy Management System and its requirements.
+This section does not state specific requirements, it only makes these requirements easier understood.
+The the Energy Management System is a system that operates independent of any other system, or any components of the heating and cooling system to which it is attached.
+The the Energy Management System, however, is composed mainly of a hardware and software portion.
+This SRS only specifies the requirements dealing with the software portion of the system.
+If assumptions or dependencies about the hardware were made, they are stated in this section of the SRS.
+The the Energy Management System is divided into four major sections: Monitor Temperature, Determine Utilization, Initialize System, and System Reports.
+All four sections have an associated software configuration item.
+All except the System Reports have an associated hardware configuration item.
+The hardware requirements are contained in the system specification.
+The functions of the software for the system are contained in the following paragraphs.
+The monitor temperature system receives the valid temperature and system parameters.
+The monitor temperature system then goes through the process of determining temperature status.
+After this process is done, either temperature limit is exceeded or the temperature change is requested.
+If the temperature change is requested, then the determine heating/cooling mode process is activated and makes a heating/cooling request.
+Some other processes that help the monitor temperature function are: validate temperature, change thermostat setting, generate alarm, and system initialization.
+The determine utilization system receives the heating/cooling request and utilization parameters.
+The determine utilization system then processes the status of all heating/cooling units and sends out either unit unavailable or heating/cooling unit needed.
+The determine utilization system generates either a unit unavailable event which goes into the System Reports function or it generates a heating/cooling signal to turn on/off the units.
+The monitor temperature system and the Initialize System help the determine utilization to do its processes.
+The initialize system receives the initialization data for the the Energy Management System.
+The processes that are associated with it are: load heating/cooling unit definitions, turn off all heating/cooling units, load th ermostat definitions, load utilization parameters, set trigger values, set overtemperature values, and establish valid temperature range.
+The outgoing information that starts the entire the Energy Management System is: clear all heating/cooling signals, send thermostat definitions, send utilization parameters, send trigger values, send overtemperature values, and send valid temperature range.
+The system reports function receives event data from the the Energy Management System.
+The system reports function is a database that stores all the events in the the Energy Management System.
+The system reports function is mainly for the use of the supervisor of the the Energy Management System to maintain an efficient heating and cooling system.
+The only process that interacts with the system reports function is the generate event data process.
+The the Energy Management System is intended to be used by people that maintain the heating and cooling systems in a building.
+The the Energy Management System should not need intervention from outside users other than the supervisor to maintain operation of THEMAS.
+The the Energy Management System should provide warnings to the supervisor about faulty temperatures.
+The displaying of the current status of the the Energy Management System to the supervisor should not contain excessive information which could confuse the supervisor.
+The the Energy Management System should provide information in the form of reports to the supervisor so that the system can be run efficiently.
+The general constraints of the the Energy Management System focus on the functionality provided by the external devices connected to it.
+The thermostats shall only provide temperature values and temperature settings.
+The heating and cooling units provide no feedback to the the Energy Management System.
+When a signal is sent to a heating or cooling unit, no signal shall be available to allow the the Energy Management System to determine if the signal sent to the unit was realized by the unit.
+In developing the requirements for the the Energy Management System, several assumptions have been made about the thermostat hardware and the heating/cooling hardware.
+These assumptions are stated in the following paragraphs.
+The the Energy Management System shall be designed to run on the Microsoft Windows operating system.
+All the internal process communications shall be designed to operate on this operating system.
+Any communication with the thermostats and heating and cooling units shall be done through the interface to these units.
+These interfaces shall run on this operating system as well.
+It is assumed that the thermostat is capable of returning the current temperature and the current desired temperature setting to the the Energy Management System.
+The thermostat is constantly returning these values with no real time delay in between the thermostat and the the Energy Management System.
+The thermostat also has the capability of being set and controlled by a user of the the Energy Management System.
+All data sent by the thermostat is in the correct format for the the Energy Management System to use.
+It is assumed that the heating/cooling unit is incapable of returning its current off/on status to the the Energy Management System.
+The heating/cooling unit has no real time delay when sending these statuses to the the Energy Management System.
+The heating/cooling unit shall have the capability of being turned off and on by the supervisor of the the Energy Management System.
+This section is subdivided into ten main subsections: Initialize Operational Parameters, Initialize System, Validate Temperature, Monitor Temperature, Determine Utilization, Generate H/C Signal, Generate Alarm Data, Generate Event Data, Change Thermostat Each subsection describes the software requirement for that individual software component of the the Energy Management System.
+The following sections describe the Initialize System component of the the Energy Management System.
+The the Energy Management System shall control the heating and cooling units that are defined as part of the the Energy Management System.
+The definitions of the individual heating and cooling systems reside in an initialization file.
+The system shall read this file and the definitions shall be derived from the initialization data in the file.
+The the Energy Management System shall use the information contained in the initialization data file to determine which heating and cooling units are part of the the Energy Management System.
+There is one heating and cooling unit that corresponds to one thermostat in each of four quadrants on each of three floors of the office building.
+Each thermostat shall have a unique identifier by which that thermostat is identified in the the Energy Management System.
+This procedure will load these definitions into the THEMAS software.
+Each quadrant of each floor shall have a thermostat which is to be used to provide temperature data to the the Energy Management System.
+The initialization file shall contain a unique identifier for each thermostat that the system is to monitor.
+These identifiers shall be read from the initialization file and loaded into the the Energy Management System during the initialization process.
+There shall be a maximum number of heating or cooling units that can be on at any given time.
+This procedure loads the maximum number of concurrently running units allowed.
+The maximum number of heating or cooling units that can run concurrently shall reside in an initialization file.
+The maximum number of concurrently running units shall be read from the initialization file and stored in the the Energy Management System.
+The trigger value is used in combination with the current temperature to determine when a heating or cooling unit shall be turned on or off.
+The trigger values shall reside in an initialization file.
+This procedure shall read the initialization file and establish the trigger value from the data in that file.
+The the Energy Management System shall ensure the temperature reported by a given thermostat shall not exceed a maximum deviation value of 3 degrees Fahrenheit.
+The overtemperature values shall reside in an initialization file.
+This procedure shall read the initialization file and establish the overtemperature value from the data in that file.
+The the Energy Management System shall only respond to temperatures that are within a reasonable value.
+The valid temperature range value shall reside in an initialization file.
+This procedure shall read the initialization file and establish the valid temperature range from the data in it.
+When the the Energy Management System is initialized, it shall first turn off all the heating and cooling units.
+Then, it shall check all the thermostats and determine if any thermostat’s settings require a heating or cooling unit to be turned on back on.
+This process shall first determine a known state of all the heating and cooling units by issuing a request to turn off all the units.
+It shall then read the current temperature values and current temperature settings of each thermostat.
+If the settings reflect a need for a heating or cooling unit to be turned on, the process shall issue a request to turn on the appropriate unit.
+This determination shall be made in accordance with the rules outlined in and 3.
+The the Energy Management System shall only respond to temperatures from the thermostats that are within the specified valid range.
+Two types of temperature data shall be recognized from the thermostats: the temperature setting and the current temperature.
+This module shall process both types of data.
+A current temperature value that is received from an individual thermostat shall be compared to the valid temperature range values.
+If the current temperature value is strictly less than the lower value of the valid temperature range or if the received temperature value is strictly greater than the upper value of the valid temperature range, then the the Energy Management System shall identify the current temperature value as an invalid temperature and shall output an invalid temperature status.
+The the Energy Management System shall output a valid temperature status.
+A temperature setting value that is received from an individual thermostat shall be compared to the valid temperature range values.
+If the temperature setting value is strictly less than the lower value of the valid temperature range or if the temperature setting value is strictly greater than the upper value of the valid temperature range, then the the Energy Management System shall identify the temperature setting as an invalid temperature and shall output an invalid temperature status.
+The the Energy Management System shall realize the value for that thermostat’s temperature setting.
+The following sections describe the Monitor Temperature component of the the Energy Management System.
+The the Energy Management System shall determine when a reported temperature or a changed temperature setting exceeds the limits set by the overtemperature values.
+Temperatures that exceed the overtemperature limits shall be reported as such.
+Temperatures that do not exceed these limits shall be output for subsequent processing.
+The the Energy Management System shall compare the reported temperature value to the temperature setting and detect when the temperature value exceeds the specified limits.
+The the Energy Management System shall recognize this condition as the temperature limit has been exceeded.
+In this case this process shall output the condition of the temperature limit having been exceeded.
+This process shall output the temperature status.
+When the current temperature value exceeds the current temperature setting by a predefined amount, the the Energy Management System shall activate the appropriate heating or cooling unit.
+s There are two conditions for each individual thermostat that shall be tested for: the thermostat’s settings are satisfied and the thermostat’s temperature indicates it requires a heating or cooling unit to be turned on.
+This condition indicates the thermostat’s current temperature setting is satisfied.
+If this condition is true, then the module shall output a request to turn off both the heating unit and the cooling unit.
+This condition the need for a heating or cooling unit to be turned on.
+If this condition is true, then this module shall output a request to turn on the heating unit.
+The the Energy Management System shall control each of the heating and cooling units that are defined for the system.
+The the Energy Management System shall limit the number of heating or cooling units that may be running simultaneously.
+The the Energy Management System shall maintain the ON/OFF status of each heating and cooling unit.
+When a request to turn on or off a heating or cooling unit, the following processing will occur.
+When a request to turn on a heating or cooling unit is received, the system shall determine if the request can be honored.
+If the maximum number of heating or cooling units is already running, the request will be added to a LIFO queue.
+If the maximum number of heating or cooling units is not running, this process will generate a request to turn on the requested unit.
+When a request to turn off a heating or cooling unit is received, this process shall check the queue of waiting heating and cooling requests.
+If the queue is not empty, this process shall remove one request from the LIFO queue and check the current state of the thermostat for which the queued request was made.
+If that thermostat still needs a heating or cooling unit turned on, this process shall submit a request to turn that unit on.
+When a request for a heating unit or cooling to be turned is denied, an event shall be generated and the the Energy Management System shall record that event.
+The information in these events will be used for creating statistical reports.
+This procedure shall realize the thermostat and heating or cooling information and use this information to generate a specific system event.
+This system event shall consist of a description of the event type (a request denied event), a designation of the thermostat that made the request, and a designation of the heating or cooling unit that was not turned on.
+The the Energy Management System shall control the heating and cooling units that are designated as part of the the Energy Management System.
+When a request to turn on or off a heating or cooling unit is made, this process shall generate the appropriate request to carry out that request.
+This request shall include the designation of the heating or cooling unit and a flag to indicate whether that unit is to be turned on or off.
+Once a request to turn on or off a heating or cooling unit, the the Energy Management System shall provide the necessary control signal for the unit.
+This control signal shall also provide an indication of the unit’s status at the requesting thermostat.
+This process shall recognize the values for the requested heating or cooling unit and the ON or OFF status that is being requested.
+The necessary signal to the heating or cooling unit will be generated.
+Since the interface to con trol the units has not been defined, the part of this process that will issue the signal is designated as TBD(to be determined).
+In order to provide an indication of the status of the heating or cooling unit back to the requesting thermostat, this procedure shall output the status information of the heating or cooling unit.
+In order to provide an operational history and statistical reports, this process shall generate an event each time a change is made to the status of a heating or cooling unit.
+This event shall contain the identification of the heating or cooling unit whose status is being changed.
+There are two events that shall result in an alarm condition: an invalid temperature value is reported from a thermostat, or the reported temperature has exceeded the defined limits.
+This process shall determine which alarm event is to be generated.
+When the the Energy Management System detects a request for an alarm, this process shall detect which of the two alarms are being requested.
+If the system detects an invalid temperature, this process shall output a continuous series of alternating 500 Hz and 700 Hz beeps on the supervisor’s computer.
+Each beep shall have a three - quarter second duration.
+This series of beeps shall continue until the supervisor manually resets the alarm through the supervisor’s interface window.
+If the system detects a temperature limit has been exceeded, this process shall output a continuous series of alternating 1000 Hz and 1500 Hz beeps on the supervisor’s computer.
+Each beep shall have a one-half second duration.
+This series of beeps shall continue until the supervisor manually resets the alarm through the supervisor’s interface window.
+Each time an alarm is requested, an alarm event shall be recorded.
+This event shall be used to provide operational and statistical reports about the system.
+For each event that is generated, the the Energy Management System shall identify each event and generate the appropriate event data.
+When an event occurs, the the Energy Management System shall identify the event type and format an appropriate event message.
+The the Energy Management System shall record each event by a description and the current system time for that event.
+This information shall be recorded in a Microsoft Access database that shall reside on the supervisor’s computer.
+The the Energy Management System shall provide the supervisor a mechanism to change the temperature setting of any of the thermostats in the system.
+The supervisor’s interface shall display the available thermostats and their individual current temperature settings.
+The supervisor shall be able to select one of the thermostats and select a value for the current temperature from a list of valid temperatures.
+The THEMAS shall provide the ability for the supervisor to select between two different types of reports: the operational history of the the Energy Management System for the past twelve months and a statistical summary for any selected month.
+The supervisor’s interface to the the Energy Management System shall provide a mechanism to select between an operational history report or a statistical summary report.
+Either report shall consist of an ASCII file whose location and name shall be selectable by the operator.
+If the operational history report is selected, the the Energy Management System shall select all the events from the event database, sort the events by date and time, and create the ASCII report file.
+If the statistical report is selected, the the Energy Management System shall present the operator with a list of available months from which to make a selection.
+After selecting one of the months, the system shall generate the ASCII report file.
+The percentage of time each heating and cooling unit was on for each day of that month.
+For each thermometer, the ratio of the number of requests for a heating and cooling unit that was granted to the number of requests for a heating or cooling unit that was denied.
